@@ -1,0 +1,50 @@
+<section class="quiz-features">
+  <div class="quiz-container">
+    <h2 class="quiz-section-title">{{ section.settings.heading }}</h2>
+    <div class="quiz-features__grid">
+      <div class="quiz-card">
+        <div class="quiz-card__icon" style="background: rgb(34 197 94 / 0.08); color: #22c55e">
+          {% render 'quiz-icons', icon: 'trophy' %}
+        </div>
+        <h3 class="quiz-card__title">Premii Garantate</h3>
+        <p class="quiz-card__text">Câștigă bani reali dacă ajungi în top 3.</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-card__icon" style="background: rgb(14 165 233 / 0.08); color: #0ea5e9">
+          {% render 'quiz-icons', icon: 'video' %}
+        </div>
+        <h3 class="quiz-card__title">Extragere Live</h3>
+        <p class="quiz-card__text">Totul este transparent, vezi rezultatele în timp real.</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-card__icon" style="background: rgb(34 197 94 / 0.08); color: #22c55e">
+          {% render 'quiz-icons', icon: 'zap' %}
+        </div>
+        <h3 class="quiz-card__title">Rapid și Distractiv</h3>
+        <p class="quiz-card__text">Doar 15 minute de competiție intensă.</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-card__icon" style="background: rgb(14 165 233 / 0.08); color: #0ea5e9">
+          {% render 'quiz-icons', icon: 'shield' %}
+        </div>
+        <h3 class="quiz-card__title">Corectitudine 100%</h3>
+        <p class="quiz-card__text">Sistem securizat, fără trișări.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quiz – Avantaje",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titlu secțiune",
+      "default": "De ce să participi?"
+    }
+  ],
+  "presets": [{ "name": "Quiz – Avantaje" }]
+}
+{% endschema %}

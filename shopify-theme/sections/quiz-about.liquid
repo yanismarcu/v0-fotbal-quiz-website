@@ -1,0 +1,76 @@
+<section class="quiz-about">
+  <div class="quiz-container quiz-container--narrow">
+    <h2 class="quiz-section-title">{{ section.settings.heading }}</h2>
+    <p class="quiz-about__intro">{{ section.settings.intro }}</p>
+
+    <h3 class="quiz-table-title"><span>⚽</span> Detalii Competiție Quiz Fotbal</h3>
+    <div class="quiz-table-wrap">
+      <table class="quiz-table">
+        <thead>
+          <tr>
+            <th>Caracteristică</th>
+            <th>Valoare</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Taxa de participare</td><td>14.99 RON</td></tr>
+          <tr><td>Număr participanți</td><td>1000 (limitat)</td></tr>
+          <tr><td>Format quiz</td><td>20 întrebări</td></tr>
+          <tr><td>Durată</td><td>15 minute</td></tr>
+          <tr><td>Premiu Locul 1</td><td>400€</td></tr>
+          <tr><td>Premiu Locul 2</td><td>60€</td></tr>
+          <tr><td>Premiu Locul 3</td><td>40€</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="quiz-table-title">
+      <span>🎓</span> Pachet Premium de Antrenament
+      <span class="quiz-tag">Opțional</span>
+    </h3>
+    <div class="quiz-table-wrap">
+      <table class="quiz-table quiz-table--blue">
+        <thead>
+          <tr>
+            <th>Caracteristică</th>
+            <th>Detalii</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Întrebări de antrenament</td><td>50 întrebări + răspunsuri</td></tr>
+          <tr><td>Similitudine</td><td>Similar cu quiz-ul oficial</td></tr>
+          <tr><td>Preț</td><td>4.99 RON</td></tr>
+          <tr><td>Status</td><td>Opțional</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="quiz-tags-row">
+      <p>Ne concentrăm pe:</p>
+      <div class="quiz-tags">
+        <span class="quiz-tag-pill">✅ Transparență totală</span>
+        <span class="quiz-tag-pill">✅ Experiență simplă și rapidă</span>
+        <span class="quiz-tag-pill">✅ Competiții corecte</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quiz – Despre",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Despre Noi"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "default": "Suntem o platformă dedicată competițiilor interactive online, creată pentru pasionații de fotbal care vor să-și testeze cunoștințele și să câștige premii reale."
+    }
+  ],
+  "presets": [{ "name": "Quiz – Despre" }]
+}
+{% endschema %}

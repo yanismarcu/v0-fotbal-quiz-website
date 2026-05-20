@@ -1,0 +1,41 @@
+{%- assign payment_url = section.settings.payment_page.url | default: '/pages/plateste' -%}
+
+<section class="quiz-cta">
+  <div class="quiz-container">
+    <h2 class="quiz-cta__title">{{ section.settings.heading }}</h2>
+    <p class="quiz-cta__text">{{ section.settings.text }}</p>
+    <a href="{{ payment_url }}" class="quiz-btn quiz-btn--white">
+      <span>👉</span>
+      <span>{{ section.settings.cta_text }}</span>
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quiz – CTA",
+  "settings": [
+    {
+      "type": "page",
+      "id": "payment_page",
+      "label": "Pagina de plată"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Ești pregătit să câștigi?"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "default": "Intră în competiție și demonstrează că știi fotbal."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Participă acum"
+    }
+  ],
+  "presets": [{ "name": "Quiz – CTA" }]
+}
+{% endschema %}

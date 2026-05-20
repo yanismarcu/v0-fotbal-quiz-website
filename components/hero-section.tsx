@@ -8,7 +8,7 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-[#DCFCE7] text-[#16A34A] px-4 py-2 rounded-full text-sm font-medium mb-8">
           <span>✨</span>
-          <span>300 locuri limitate</span>
+          <span>1000 locuri limitate</span>
         </div>
 
         {/* Title */}
@@ -49,7 +49,7 @@ export function HeroSection() {
           <span>👉</span>
           <span>Participă acum</span>
         </Link>
-        <p className="text-sm text-muted-foreground mt-3">doar 19.99 RON</p>
+        <p className="text-sm text-muted-foreground mt-3">doar 14.99 RON</p>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-2xl mx-auto">
@@ -60,7 +60,7 @@ export function HeroSection() {
           </div>
           <div className="flex flex-col items-center gap-2">
             <Users className="w-6 h-6 text-[#0EA5E9]" />
-            <span className="font-semibold">300</span>
+            <span className="font-semibold">1000</span>
             <span className="text-sm text-muted-foreground">locuri</span>
           </div>
           <div className="flex flex-col items-center gap-2">

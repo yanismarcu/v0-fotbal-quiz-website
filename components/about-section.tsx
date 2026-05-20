@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/table"
 
 const competitionDetails = [
-  { label: "Taxa de participare", value: "19.99 RON" },
-  { label: "Număr participanți", value: "300 (limitat)" },
+  { label: "Taxa de participare", value: "14.99 RON" },
+  { label: "Număr participanți", value: "1000 (limitat)" },
   { label: "Format quiz", value: "20 întrebări" },
   { label: "Durată", value: "15 minute" },
   { label: "Premiu Locul 1", value: "400€" },
@@ -20,7 +20,7 @@ const competitionDetails = [
 const premiumPackage = [
   { label: "Întrebări de antrenament", value: "50 întrebări + răspunsuri" },
   { label: "Similitudine", value: "Similar cu quiz-ul oficial" },
-  { label: "Preț", value: "9.99 RON" },
+  { label: "Preț", value: "4.99 RON" },
   { label: "Status", value: "Opțional" },
 ]
 

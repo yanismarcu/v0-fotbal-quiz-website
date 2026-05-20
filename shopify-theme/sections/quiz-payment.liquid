@@ -1,0 +1,151 @@
+{%- assign product_participation = section.settings.product_participation -%}
+{%- assign product_premium = section.settings.product_premium -%}
+{%- assign home_url = section.settings.home_page.url | default: routes.root_url -%}
+
+{%- if product_participation != blank -%}
+  {%- assign participation_variant = product_participation.selected_or_first_available_variant -%}
+  {%- assign participation_price = participation_variant.price | divided_by: 100.0 -%}
+{%- else -%}
+  {%- assign participation_price = 14.99 -%}
+{%- endif -%}
+
+{%- if product_premium != blank -%}
+  {%- assign premium_variant = product_premium.selected_or_first_available_variant -%}
+  {%- assign premium_price = premium_variant.price | divided_by: 100.0 -%}
+{%- else -%}
+  {%- assign premium_price = 4.99 -%}
+{%- endif -%}
+
+<main class="quiz-payment">
+  <div class="quiz-container quiz-container--payment">
+    <a href="{{ home_url }}" class="quiz-link-back">
+      {% render 'quiz-icons', icon: 'arrow-left' %}
+      <span>Înapoi la pagina principală</span>
+    </a>
+
+    {% if product_participation == blank %}
+      <div class="quiz-admin-notice">
+        <strong>Configurare necesară:</strong> În editorul de temă, la secțiunea „Quiz – Plată”, selectează produsul
+        <em>Taxă participare quiz</em> (14,99 RON). Creează produsul în Shopify Admin → Products dacă nu există.
+      </div>
+    {% endif %}
+
+    <div class="quiz-payment__grid">
+      <div>
+        <div class="quiz-panel">
+          <h2 class="quiz-panel__title">Date personale</h2>
+          <form id="quiz-payment-form" novalidate>
+            <div class="quiz-field">
+              <label for="quiz-nume">Nume complet</label>
+              <input type="text" id="quiz-nume" name="nume" placeholder="Ion Popescu" required autocomplete="name">
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-email">Email</label>
+              <input type="email" id="quiz-email" name="email" placeholder="ion@email.com" required autocomplete="email">
+            </div>
+            <div class="quiz-field">
+              <label for="quiz-telefon">Telefon (opțional)</label>
+              <input type="tel" id="quiz-telefon" name="telefon" placeholder="0722 123 456" autocomplete="tel">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <div class="quiz-panel quiz-panel--summary">
+          <h2 class="quiz-panel__title">Sumar comandă</h2>
+
+          <div id="quiz-payment-error" class="quiz-alert" role="alert"></div>
+
+          <div class="quiz-summary-row">
+            <span>Taxă participare</span>
+            <span class="quiz-total__label">
+              {%- if product_participation != blank -%}
+                {{ participation_variant.price | money }}
+              {%- else -%}
+                14.99 RON
+              {%- endif -%}
+            </span>
+          </div>
+
+          <div class="quiz-premium-box">
+            <label>
+              <input type="checkbox" id="quiz-premium" name="premium" {% if product_premium == blank %}disabled{% endif %}>
+              <span>
+                <span class="quiz-premium-box__title">Pachet premium antrenament</span>
+                <p class="quiz-premium-box__desc">50 întrebări + răspunsuri similare cu quiz-ul oficial</p>
+                <p class="quiz-premium-box__price">
+                  +{%- if product_premium != blank -%}{{ premium_variant.price | money }}{%- else -%}4.99 RON{%- endif -%}
+                </p>
+              </span>
+            </label>
+          </div>
+
+          <div class="quiz-total quiz-summary-row">
+            <span class="quiz-total__label">Total</span>
+            <span class="quiz-total__amount" id="quiz-total-amount">{{ participation_price | round: 2 }} RON</span>
+          </div>
+
+          <div class="quiz-trust">
+            <div>
+              <span style="color: var(--quiz-green)">{% render 'quiz-icons', icon: 'lock' %}</span>
+              <span>Plată Shopify securizată</span>
+            </div>
+            <div>
+              <span style="color: var(--quiz-blue)">{% render 'quiz-icons', icon: 'message' %}</span>
+              <span>Suport 24/7</span>
+            </div>
+            <div>
+              <span style="color: var(--quiz-green)">{% render 'quiz-icons', icon: 'check' %}</span>
+              <span>Tranzacții sigure</span>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            form="quiz-payment-form"
+            id="quiz-pay-btn"
+            class="quiz-btn quiz-btn--primary quiz-btn--full"
+            {% if product_participation == blank %}disabled{% endif %}
+          >
+            <span>👉</span>
+            <span style="margin-left: 0.5rem">Plătește și participă</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  window.QUIZ_SHOPIFY = {
+    participationVariantId: {% if participation_variant %}{{ participation_variant.id | json }}{% else %}null{% endif %},
+    premiumVariantId: {% if premium_variant %}{{ premium_variant.id | json }}{% else %}null{% endif %},
+    participationPrice: {{ participation_price | json }},
+    premiumPrice: {{ premium_price | json }}
+  };
+</script>
+
+{% schema %}
+{
+  "name": "Quiz – Plată",
+  "settings": [
+    {
+      "type": "page",
+      "id": "home_page",
+      "label": "Pagina principală (acasă)"
+    },
+    {
+      "type": "product",
+      "id": "product_participation",
+      "label": "Produs – Taxă participare (14,99 RON)"
+    },
+    {
+      "type": "product",
+      "id": "product_premium",
+      "label": "Produs – Pachet premium (4,99 RON)"
+    }
+  ],
+  "presets": [{ "name": "Quiz – Plată" }]
+}
+{% endschema %}

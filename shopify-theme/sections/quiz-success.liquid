@@ -1,0 +1,43 @@
+{%- assign home_url = section.settings.home_page.url | default: routes.root_url -%}
+
+<main class="quiz-success">
+  <div class="quiz-container">
+    <a href="{{ home_url }}" class="quiz-link-back">
+      {% render 'quiz-icons', icon: 'arrow-left' %}
+      <span>Înapoi la pagina principală</span>
+    </a>
+
+    <div class="quiz-panel">
+      <div class="quiz-success__icon">
+        {% render 'quiz-icons', icon: 'check-circle' %}
+      </div>
+      <h2 class="quiz-panel__title">{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+      <a href="{{ home_url }}" class="quiz-btn quiz-btn--green">Înapoi acasă</a>
+    </div>
+  </div>
+</main>
+
+{% schema %}
+{
+  "name": "Quiz – Succes plată",
+  "settings": [
+    {
+      "type": "page",
+      "id": "home_page",
+      "label": "Pagina principală"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Plata a fost realizată cu succes"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "default": "Ești înscris în competiție. Vei primi detaliile pe email după confirmarea comenzii."
+    }
+  ],
+  "presets": [{ "name": "Quiz – Succes plată" }]
+}
+{% endschema %}

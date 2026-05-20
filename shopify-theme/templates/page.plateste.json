@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "quiz-payment",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

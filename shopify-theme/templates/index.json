@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "quiz-hero": {
+      "type": "quiz-hero",
+      "settings": {}
+    },
+    "quiz-features": {
+      "type": "quiz-features",
+      "settings": {}
+    },
+    "quiz-steps": {
+      "type": "quiz-steps",
+      "settings": {}
+    },
+    "quiz-about": {
+      "type": "quiz-about",
+      "settings": {}
+    },
+    "quiz-cta": {
+      "type": "quiz-cta",
+      "settings": {}
+    },
+    "quiz-footer": {
+      "type": "quiz-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "quiz-hero",
+    "quiz-features",
+    "quiz-steps",
+    "quiz-about",
+    "quiz-cta",
+    "quiz-footer"
+  ]
+}

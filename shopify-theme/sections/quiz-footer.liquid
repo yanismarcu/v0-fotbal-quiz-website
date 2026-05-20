@@ -1,0 +1,55 @@
+<footer class="quiz-footer">
+  <div class="quiz-container">
+    <div class="quiz-footer__inner">
+      <div class="quiz-footer__links">
+        {% if section.settings.link_terms != blank %}
+          <a href="{{ section.settings.link_terms }}">Termeni și condiții</a>
+        {% endif %}
+        {% if section.settings.link_privacy != blank %}
+          <a href="{{ section.settings.link_privacy }}">Politică de confidențialitate</a>
+        {% endif %}
+        {% if section.settings.link_contact != blank %}
+          <a href="{{ section.settings.link_contact }}">Contact</a>
+        {% endif %}
+        {% if section.settings.link_support != blank %}
+          <a href="{{ section.settings.link_support }}">Suport</a>
+        {% endif %}
+      </div>
+      <p class="quiz-footer__copy">{{ section.settings.copyright }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Quiz – Footer",
+  "settings": [
+    {
+      "type": "url",
+      "id": "link_terms",
+      "label": "Link termeni"
+    },
+    {
+      "type": "url",
+      "id": "link_privacy",
+      "label": "Link confidențialitate"
+    },
+    {
+      "type": "url",
+      "id": "link_contact",
+      "label": "Link contact"
+    },
+    {
+      "type": "url",
+      "id": "link_support",
+      "label": "Link suport"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "default": "© 2026 Quiz Fotbal România. Toate drepturile rezervate."
+    }
+  ],
+  "presets": [{ "name": "Quiz – Footer" }]
+}
+{% endschema %}

@@ -33,7 +33,7 @@ export function StepsSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#1F2937]">
           Cum funcționează?
         </h2>
-        <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center flex-1 relative">
               {/* Connector line */}

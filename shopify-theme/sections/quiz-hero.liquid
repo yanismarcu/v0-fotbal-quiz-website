@@ -1,0 +1,124 @@
+{%- assign payment_url = section.settings.payment_page.url | default: '/pages/plateste' -%}
+
+<section class="quiz-hero">
+  <div class="quiz-container">
+    <div class="quiz-badge">
+      <span>✨</span>
+      <span>{{ section.settings.badge_text }}</span>
+    </div>
+
+    <h1 class="quiz-hero__title">
+      <span class="quiz-hero__title-green">{{ section.settings.title_green }}</span><br>
+      <span>{{ section.settings.title_dark }}</span>
+    </h1>
+
+    <div class="quiz-prizes">
+      <div>
+        <div class="quiz-prizes__amount">{{ section.settings.prize_1 }}</div>
+        <div class="quiz-prizes__label">Locul 1</div>
+      </div>
+      <div>
+        <div class="quiz-prizes__amount quiz-prizes__amount--sm">{{ section.settings.prize_2 }}</div>
+        <div class="quiz-prizes__label">Locul 2</div>
+      </div>
+      <div>
+        <div class="quiz-prizes__amount quiz-prizes__amount--sm">{{ section.settings.prize_3 }}</div>
+        <div class="quiz-prizes__label">Locul 3</div>
+      </div>
+    </div>
+
+    <p class="quiz-hero__subtitle">{{ section.settings.subtitle }}</p>
+
+    <a href="{{ payment_url }}" class="quiz-btn quiz-btn--primary">
+      <span>👉</span>
+      <span>{{ section.settings.cta_text }}</span>
+    </a>
+    <p class="quiz-hero__price">{{ section.settings.price_hint }}</p>
+
+    <div class="quiz-stats">
+      <div class="quiz-stat" style="color: var(--quiz-green)">
+        {% render 'quiz-icons', icon: 'trophy' %}
+        <span class="quiz-stat__value">500€</span>
+        <span class="quiz-stat__label">premii totale</span>
+      </div>
+      <div class="quiz-stat" style="color: var(--quiz-blue)">
+        {% render 'quiz-icons', icon: 'users' %}
+        <span class="quiz-stat__value">1000</span>
+        <span class="quiz-stat__label">locuri</span>
+      </div>
+      <div class="quiz-stat" style="color: var(--quiz-green)">
+        {% render 'quiz-icons', icon: 'help' %}
+        <span class="quiz-stat__value">20</span>
+        <span class="quiz-stat__label">întrebări</span>
+      </div>
+      <div class="quiz-stat" style="color: var(--quiz-blue)">
+        {% render 'quiz-icons', icon: 'clock' %}
+        <span class="quiz-stat__value">15</span>
+        <span class="quiz-stat__label">minute</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quiz – Hero",
+  "settings": [
+    {
+      "type": "page",
+      "id": "payment_page",
+      "label": "Pagina de plată"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge",
+      "default": "1000 locuri limitate"
+    },
+    {
+      "type": "text",
+      "id": "title_green",
+      "label": "Titlu (verde)",
+      "default": "România Știe"
+    },
+    {
+      "type": "text",
+      "id": "title_dark",
+      "label": "Titlu (negru)",
+      "default": "Quiz Fotbal"
+    },
+    {
+      "type": "text",
+      "id": "prize_1",
+      "default": "400€"
+    },
+    {
+      "type": "text",
+      "id": "prize_2",
+      "default": "60€"
+    },
+    {
+      "type": "text",
+      "id": "prize_3",
+      "default": "40€"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitlu",
+      "default": "Testează-ți cunoștințele despre fotbal și câștigă premii în bani. Competiție live cu extragere transparentă."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "default": "Participă acum"
+    },
+    {
+      "type": "text",
+      "id": "price_hint",
+      "default": "doar 14.99 RON"
+    }
+  ],
+  "presets": [{ "name": "Quiz – Hero" }]
+}
+{% endschema %}
